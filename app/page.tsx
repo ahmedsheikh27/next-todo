@@ -1,10 +1,11 @@
-import TodoItems from "./components/TodoItems";
+import TodoList from "@/components/TodoList";
 
-export default function Home() {
+
+const Home: React.FC = () => {
   return (
-   <main>
-    <div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <TodoList/> 
     </div>
-   </main>
   );
 }
+export default Home
