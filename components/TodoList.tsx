@@ -49,13 +49,14 @@ const TodoList: React.FC = () => {
   };
 
   return (
-<main className="w-screen h-screen flex flex-col items-center relative">
+<main className="w-screen h-screen flex flex-col items-center relative overflow-hidden">
   <div
     className="absolute top-0 w-full h-1/2 bg-cover bg-center"
-    style={{ backgroundImage: "url(/bg-mobile-light.jpg)" }}>
+    style={{ backgroundImage: "url(/bg-desktop-light.jpg)" }}
+  >
   </div>
-  <div className="relative z-10  items-center max-w-md w-full p-5 mt-[200px] bg-black bg-opacity-50 rounded-lg">
-    <h1 className="text-4xl font-bold text-white mb-2  relative text">TODO LIST</h1>
+  <div className="relative z-10 max-w-md w-full p-5 mt-[150px] bg-black bg-opacity-50 rounded-lg">
+    <h1 className="text-4xl font-bold text-white mb-2 text-center">TODO LIST</h1>
     <div className="flex mb-4">
       <input
         type="text"
@@ -68,17 +69,20 @@ const TodoList: React.FC = () => {
         Add
       </button>
     </div>
-    {todos.map((todo) => (
-      <TodoItems
-        key={todo.id}
-        todo={todo}
-        onDelete={deleteTodo}
-        onEdit={editTodo}
-        onToggleComplete={toggleTodoCompletion}
-      />
-    ))}
+    <div className="max-h-[300px] overflow-y-auto">
+      {todos.map((todo) => (
+        <TodoItems
+          key={todo.id}
+          todo={todo}
+          onDelete={deleteTodo}
+          onEdit={editTodo}
+          onToggleComplete={toggleTodoCompletion}
+        />
+      ))}
+    </div>
   </div>
 </main>
+
 
 
 
