@@ -3,7 +3,7 @@
 import TodoItems from '@/components/TodoItems';
 import { Todo } from '@/types/Todo';
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
+import Footer from './Footer';
 
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -49,13 +49,13 @@ const TodoList: React.FC = () => {
   };
 
   return (
-<main className="w-screen h-screen flex flex-col items-center relative overflow-hidden">
+<main className="w-screen h-screen flex flex-col items-center relative ">
   <div
     className="absolute top-0 w-full h-1/2 bg-cover bg-center"
     style={{ backgroundImage: "url(/bg-desktop-light.jpg)" }}
   >
   </div>
-  <div className="relative z-10 max-w-[400px] m-3 w-full p-5 mt-[150px] bg-black bg-opacity-50 rounded-lg">
+  <div className="relative z-10 max-w-[400px] m-3 w-full p-5 mt-[200px] bg-black bg-opacity-50 rounded-lg">
     <h1 className="text-4xl font-bold text-white mb-2 text-center">TODO LIST</h1>
     <div className="flex mb-4">
       <input
@@ -69,7 +69,7 @@ const TodoList: React.FC = () => {
         Add
       </button>
     </div>
-    <div className="max-h-[300px] overflow-y-auto">
+    <div className="max-h-[250px] overflow-y-auto">
       {todos.map((todo) => (
         <TodoItems
           key={todo.id}
@@ -81,10 +81,11 @@ const TodoList: React.FC = () => {
       ))}
     </div>
   </div>
+  <div className='mb-0 w-full mt-[100px]'>
+
+  <Footer/>
+  </div>
 </main>
-
-
-
 
   );
 };
