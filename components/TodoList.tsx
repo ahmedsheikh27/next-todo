@@ -55,7 +55,7 @@ const TodoList: React.FC = () => {
     style={{ backgroundImage: "url(/bg-desktop-light.jpg)" }}
   >
   </div>
-  <div className="relative z-10 max-w-md w-full p-5 mt-[150px] bg-black bg-opacity-50 rounded-lg">
+  <div className="relative z-10 max-w-[400px] m-3 w-full p-5 mt-[150px] bg-black bg-opacity-50 rounded-lg">
     <h1 className="text-4xl font-bold text-white mb-2 text-center">TODO LIST</h1>
     <div className="flex mb-4">
       <input
