@@ -8,20 +8,27 @@ import Footer from './Footer';
 const TodoList: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [newTodo, setNewTodo] = useState('');
+  const [isFirst, setIsFirst] = useState(true)
 
   // Load todos from localStorage on component mount
-  useEffect(() => {
-    const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []); // Empty dependency array ensures this only runs once
-
+  
   // Save todos to localStorage whenever `todos` state changes
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+     const storedTodos = localStorage.getItem('todos');
+     if (storedTodos) {
+       setTodos(JSON.parse(storedTodos));
+      } 
+    }, []); // Empty dependency array ensures this only runs once
 
+  useEffect(() => {
+    if(!isFirst){
+      localStorage.setItem('todos', JSON.stringify(todos));
+    }
+    else {
+      setIsFirst(false)
+    }
+  }), [todos];
+  
   const addTodo = () => {
     if (newTodo.trim() === '') return;
 
